@@ -8,15 +8,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import test.littleswords.com.annotationtest.simplebutterknife.ButterKnife;
+import test.littleswords.com.annotationtest.simplebutterknife.ContentView;
+import test.littleswords.com.annotationtest.simplebutterknife.ViewInject;
+@ContentView(value = R.layout.activity_main)
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private AlertDialog dialog;
+
+    @ViewInject(id = R.id.activity_main, clickable = true)
+    FrameLayout bg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         View decorView = getWindow().getDecorView();
 // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
@@ -42,5 +51,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+        ButterKnife.init(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
     }
 }

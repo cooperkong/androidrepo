@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 public class ButterKnife {
     private static void initViews(Object object, View sourceView){
-        Field[] fields = object.getClass().getFields();
+        Field[] fields = object.getClass().getDeclaredFields();
         for(Field field : fields){
             if(field.isAnnotationPresent(ViewInject.class)){
                 ViewInject viewInject = field.getAnnotation(ViewInject.class);
@@ -34,13 +34,13 @@ public class ButterKnife {
         }
     }
 
-    private static void initContent(Object object){
-        Class activity  = object.getClass();
-        ContentView contentView = (ContentView) activity.getAnnotation(ContentView.class);
+    private static void initContent(Activity object){
+        Class<? extends Activity> activity  =  object.getClass();
+        ContentView contentView = activity.getAnnotation(ContentView.class);
         int id = contentView.value();
         try {
             Method method = object.getClass().getMethod("setContentView", int.class);
-            method.invoke(activity, id);
+            method.invoke(object, id);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -51,7 +51,7 @@ public class ButterKnife {
 
     }
 
-    public void init(Activity activity){
+    public static void init(Activity activity){
         initContent(activity);
         initViews(activity, activity.getWindow().getDecorView());
     }

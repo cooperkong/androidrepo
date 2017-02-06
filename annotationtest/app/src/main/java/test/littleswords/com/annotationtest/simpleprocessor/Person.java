@@ -1,4 +1,4 @@
-package test.littleswords.com.annotationtest;
+package test.littleswords.com.annotationtest.simpleprocessor;
 
 /**
  * Created by wenchaokong on 6/02/2017.

@@ -1,4 +1,4 @@
-package test.littleswords.com.annotationtest;
+package test.littleswords.com.annotationtest.simpleprocessor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -2,6 +2,8 @@ package test.littleswords.com.annotationtest;
 
 import android.app.ActionBar;
 import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,12 +52,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             }
         });
-        dialog.show();
         ButterKnife.init(this);
     }
 
     @Override
     public void onClick(View v) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                dialog.show();
+            }
+        });
+
+        someNetworkcall();
+
         Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    private void someNetworkcall() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }

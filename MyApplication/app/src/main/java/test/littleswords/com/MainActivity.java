@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import test.littleswords.com.arcmotion.ArcMotionActivity;
 import test.littleswords.com.coordinatelayout.CoordinateLayoutActivity;
 import test.littleswords.com.coordinatelayout.R;
 import test.littleswords.com.sharedelementtransition.SharedElementActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.main_activity);
         findViewById(R.id.coordinatelayout_activity_btn).setOnClickListener(this);
         findViewById(R.id.sharedelement_activity_btn).setOnClickListener(this);
+        findViewById(R.id.arcmotion_activity_btn).setOnClickListener(this);
     }
 
     @Override
@@ -33,9 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sharedelement_activity_btn:
                 intent.setClass(this, SharedElementActivity.class);
                 break;
-
+            case R.id.arcmotion_activity_btn:
+                intent.setClass(this, ArcMotionActivity.class);
+                break;
         }
-
         startActivity(intent);
     }
 }

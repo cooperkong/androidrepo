@@ -18,6 +18,7 @@
 
         <activity android:name="test.littleswords.com.sharedelementtransition.SharedElementActivity"/>
         <activity android:name="test.littleswords.com.coordinatelayout.CoordinateLayoutActivity"/>
+        <activity android:name="test.littleswords.com.arcmotion.ArcMotionActivity"/>
     </application>
 
 </manifest>

@@ -14,4 +14,9 @@
         android:text="Sharedelement transition fragment test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/arcmotion_activity_btn"
+        android:text="ArcMotion test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

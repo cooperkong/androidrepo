@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:transitionName="wenchao"
+    tools:context="test.littleswords.com.coordinatelayout.CoordinateLayoutActivity">
+
+
+        <TextView
+            android:id="@+id/content_textview"
+            android:background="@android:color/holo_blue_light"
+            android:text="asfsdfsadfsadfsafsadfsdfsdfsafsf"
+            android:layout_marginTop="200dp"
+            app:layout_behavior="test.littleswords.com.coordinatelayout.behaviour.CustomBehaviour"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+
+        <ImageView
+            android:id="@+id/contentImage"
+            android:src="@drawable/nioh"
+            android:layout_gravity="top|end"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_initial_height"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
